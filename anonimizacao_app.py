@@ -1,4 +1,5 @@
 from datetime import datetime
+import re
 from numpy.core.defchararray import center
 import streamlit as st
 import pandas as pd
@@ -18,6 +19,15 @@ def get_table_download_link(df):
     return href
 
 
+def required_info(option):
+    info1='Diretos: informações que se relacionam diretamente a uma pessoa. Por exemplo: nome, endereço, CPF, etc.;\n\n\nIndiretos ou quase identificadores: informações que podem ser combinadas com outras para identificar uma pessoa. Por exemplo: cidade, CEP, renda, lugar que trabalha, etc. '
+    info2='São aquelas representadas por um número inteiro. Por exemplo, o número de filhos, e a idade de uma pessoa.'
+    info3='São aquelas representadas por um número não inteiros, ou seja, apresetam casas decimais. Por exemplo, a altura, e o peso de uma pessoa'
+    options={'Tipos de Variáveis Identificadoras':info1,
+            'Variáveis Númericas Discretas':info2,
+            'Variáveis Numéricas Contínuas':info3}
+    return options[option]
+
 
 st.markdown('# Aplicativo de Anonimização de Dados')
 
@@ -36,8 +46,7 @@ if data_file:
         df=pd.read_excel(data_file)
 
     st.markdown('### Selecione as variáveis a serem anonimizadas')
-    # left_column,right_column = st.beta_columns(2)
-    # pressed = right_column.button('Próxima Etapa')
+   
 
     st.write(df.head())
 
@@ -48,22 +57,34 @@ if data_file:
         checkbox_1[i]=st.checkbox(str(options[i]),key='1_'+str(i))
     
     
-    # pressed=st.button('selecionado')
-    # if pressed or pressed_before:
+
     N_col=len(np.where(checkbox_1==True)[0])
     cols=options[np.where(checkbox_1==True)]
+
+    
+    sidebar = st.sidebar
+    sidebar.markdown('# Glossário')
+    req_info=sidebar.selectbox(
+        '',('Tipos de Variáveis Identificadoras','Variáveis Númericas Discretas','Variáveis Numéricas Contínuas')
+    )
+    sidebar.write(str(required_info(req_info)))
+
+
+
     if  N_col>0:
+        
 
         st.markdown('### Variáveis selecionadas:')    
-        st.markdown('; '.join(cols))
+        st.markdown('#### '+'; '.join(cols))
     
 
     #selecionar as variáveis diretas e indiretas
 
         st.markdown("### Selecione as variáveis que identificam de forma direta e indireta")
-        left_column,right_column=st.beta_columns(2)
+        left_column,center_column,right_column=st.beta_columns(3)
 
-        left_column.write('Direta')
+        
+        center_column.write('Direta')
         right_column.write('Indireta')
 
 
@@ -72,9 +93,13 @@ if data_file:
         checkbox_2_right=np.zeros(N_col,dtype=bool)
         print(N_col,cols)
         
+
+        left_column.write('')
+        left_column.write('')
         for i in range(N_col):
-            checkbox_2_left[i]=left_column.checkbox(cols[i],key='2_left_'+str(i))
-            checkbox_2_right[i]=right_column.checkbox(cols[i],key='2_right_'+str(i))
+            left_column.write(cols[i])
+            checkbox_2_left[i]=center_column.checkbox('',key='2_left_'+str(i))
+            checkbox_2_right[i]=right_column.checkbox('',key='2_right_'+str(i))
         
         personal_info=cols[np.where(checkbox_2_left==True)]
         partial_personal_info=cols[np.where(checkbox_2_right==True)]
