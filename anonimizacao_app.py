@@ -21,8 +21,8 @@ def get_table_download_link(df):
 
 def required_info(option):
     info1='Diretos: informações que se relacionam diretamente a uma pessoa. Por exemplo: nome, endereço, CPF, etc.;\n\n\nIndiretos ou quase identificadores: informações que podem ser combinadas com outras para identificar uma pessoa. Por exemplo: cidade, CEP, renda, lugar que trabalha, etc. '
-    info2='São aquelas representadas por um número inteiro. Por exemplo, o número de filhos, e a idade de uma pessoa.'
-    info3='São aquelas representadas por um número não inteiros, ou seja, apresetam casas decimais. Por exemplo, a altura, e o peso de uma pessoa'
+    info2='São aquelas representadas por um número inteiro. Por exemplo, o número de filhos, e a idade de uma pessoa.\n\n\nA amplitude se refere ao máximo de rúido que pode ser adicionado aos dados\n\n\nDatetime é o botão que signaliza que os dados são datas.'
+    info3='São aquelas representadas por um número não inteiros, ou seja, apresetam casas decimais. Por exemplo, a altura, e o peso de uma pessoa.'
     options={'Tipos de Variáveis Identificadoras':info1,
             'Variáveis Númericas Discretas':info2,
             'Variáveis Numéricas Contínuas':info3}
