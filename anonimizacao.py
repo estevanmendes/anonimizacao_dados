@@ -13,7 +13,7 @@ class anonymization:
     def remove_personal_info(self,cols):
         for column in cols:
             self.df[column]=self.df[column].astype(str)
-            random=np.random.randint(0,9,size=20)
+            random=np.random.randint(0,9,size=50)
             lengths = self.df[column].astype(str).map(len)
             tokenize = Tokenizer(max_token_len=max(lengths), key=str(random))
             self.df[column]=tokenize(self.df[column])
