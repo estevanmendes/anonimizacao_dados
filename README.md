@@ -2,7 +2,7 @@
 
 ## Contexto
 
-O código desenvolvido tem por objetivo a anonimização de dados sensíveis. As variáveis que podem identificar um indivíduo de forma direta, por exemplo, o nome, endereço, CPF são criptografadas de forma irreversível. As variáveis que podem identificar os indivíduos de forma indireta podem ser perturbadas adicionando um ruído, ou serem arredondadas.
+O código desenvolvido tem por objetivo a anonimização de dados sensíveis. As variáveis que podem identificar um indivíduo de forma direta, por exemplo, o nome, endereço, CPF, são criptografadas de forma irreversível. As variáveis que podem identificar os indivíduos de forma indireta podem ser perturbadas adicionando um ruído, ou serem arredondadas.
 
 
 Há 3 métodos, além do construtor. São eles ``remove_personal_info()``, ``add_noise()``, ``round_data()``.
