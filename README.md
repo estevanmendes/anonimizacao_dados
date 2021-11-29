@@ -36,7 +36,7 @@ novo_dataframe=dados_anonimizados.df
 
 O código tem apenas um atributo, ``df`` que é o dataframe que está sendo tratado. 
 
-O parâmetro ``cols`` e ``àmplitudes`` que aparecem no métodos devem ser passados em forma de lista, vetor, ou algum objeto iterável.
+O parâmetro ``cols`` e ``amplitudes`` que aparecem no métodos devem ser passados em forma de lista, vetor, ou algum objeto iterável.
 
 O método ```add_noise()`` funciona tanto com número, quanto com datas. O parâmetro amplitudes significa a amplitude máxima do rúido que está sendo adicionado. 
 
