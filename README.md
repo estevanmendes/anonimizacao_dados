@@ -40,7 +40,7 @@ O parâmetro ``cols`` e ``àmplitudes`` que aparecem no métodos devem ser passa
 
 O método ```add_noise()`` funciona tanto com número, quanto com datas. O parâmetro amplitudes significa a amplitude máxima do rúido que está sendo adicionado. 
 
-O método de ```remove_pesonal_info()``` está implementado de forma que a criptografia de uma variável contendo a mesma informação será sempre diferente. Isso é feito por meio de uma variável chamada random. **Caso haja interesse em um padrão criptografico, ou seja, que a criptografia de uma mesma variável seja sempre a mesma é necessário redefinir essa variável por alguma chave.**
+O método de ```remove_pesonal_info()``` está implementado de forma que a criptografia de uma variável contendo a mesma informação será sempre diferente. Isso é feito por meio de uma variável chamada random. **Caso haja interesse em um padrão criptográfico, ou seja, que a criptografia de uma mesma variável seja sempre a mesma é necessário redefinir essa variável por alguma chave.**
 Por exemplo:
 
 ```
