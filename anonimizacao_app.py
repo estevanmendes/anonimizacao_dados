@@ -4,7 +4,7 @@ from numpy.core.defchararray import center
 import streamlit as st
 import pandas as pd
 import numpy as np
-from anonimizacao import anonymization
+from anonimizacao import Anonymization
 import base64
 
 
@@ -151,7 +151,7 @@ if data_file:
             cols_noise=partial_personal_info[np.where(checkbox_3==True)]
             cols_round=partial_personal_info[np.where(checkbox_4==True)]
 
-            anony=anonymization(df)
+            anony=Anonymization(df)
             anony.remove_personal_info(personal_info)
             if len(cols_noise)>0:
                 anony.add_noise(cols_noise,amp_noise)
