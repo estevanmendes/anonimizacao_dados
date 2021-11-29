@@ -52,3 +52,22 @@ Por exemplo:
 ...
 
 ```
+
+# Informações sobre o App
+
+Um aplicativo foi criado para que fosse possível realizar a anonimização sem a necessidade de rodar o código no terminal, visando possibilitar que toda a equipe utilizasse o código de anonimização caso fosse necessário. 
+
+O app foi criado utilizando a biblioteca Streamlit. No app é possível selecionar quais variáveis deve ser anonimizadas e de que forma, ao fim do processo o código é rodado o dataframe anonimizado é passível de download.
+ 
+É necessário que seja feito o deploy desse app, para rodá-lo em sua máquina basta executar o código:
+
+
+```
+streamlit run anonnimizacao_app.py
+```
+
+Eis uma foto do app executado.
+
+![pagina1](img/1.png)
+
+![pagina2](img/2.png)
